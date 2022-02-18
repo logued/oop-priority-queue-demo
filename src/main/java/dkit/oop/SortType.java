@@ -1,5 +1,9 @@
 package dkit.oop;
 
+// An enumerated type that is passed into a Comparator to set the
+// order to "Ascending" or "Descending" order of the field/attributes
+// order specified in the Comparator.
+
 public enum SortType
 {
 	Ascending(1, "Sort Ascending"),

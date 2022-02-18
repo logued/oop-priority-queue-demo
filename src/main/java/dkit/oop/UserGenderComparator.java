@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class UserGenderComparator implements Comparator<User>
 {
-	private SortType sortType;
+	private SortType sortType;	// Ascending or Descending enum type
 
 	public UserGenderComparator(SortType sortType)
 	{
@@ -13,17 +13,17 @@ public class UserGenderComparator implements Comparator<User>
 	
 	
 	@Override
-	public int compare(User u1, User u2)
+	public int compare(User user1, User user2)
 	{
-		if(u1.isGender() && !u2.isGender()) //F, M
+		if( user1.getGender() < user2.getGender() ) //F, M
 		{
-			return -1 * this.sortType.getValue();
+			return -1 * this.sortType.getValue();  // sorType may negate sort order
 		}
-		else if(!u1.isGender() && u2.isGender()) //M, F
+		else if(user1.getGender() > user2.getGender()) //M, F
 		{
 			return 1 * this.sortType.getValue();
 		}
-		else //M, M or F, F
+		else // same gender
 		{
 			return 0;
 		}
