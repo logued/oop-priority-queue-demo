@@ -1,11 +1,11 @@
 package dkit.oop;
 
-// Priority Queue Demo			Feb 2022
+// Priority priorityQueueDemo			Feb 2022
 
 // Demonstrates
-// - PriorityQueue for queue of Strings ( uses compareTo() as defined in String class)
-// - PriorityQueue for queue of User objects (employing the compareTo() method defined in User)
-// - PriorityQueue for queue of User Objects using various Comparators that are passed into
+// - PriorityQueue for priorityQueueof Strings ( uses compareTo() as defined in String class)
+// - PriorityQueue for priorityQueueof User objects (employing the compareTo() method defined in User)
+// - PriorityQueue for priorityQueueof User Objects using various Comparators that are passed into
 //   the PriorityQueue's constructor.
 
 import java.util.Comparator;
@@ -19,51 +19,51 @@ public class MainApp {
     }
 
     private void start() {
-        //queueOfStringsPriorityDemo();
-        //demoUserQueue();
-         demoUserFirstNameComparator();
-        //demoUserAgeComparator();
-        //demoGenderComparator();
+        queueOfStringsPriorityDemo();
+        demoUserQueue();
+        demoUserFirstNameComparator();
+        demoUserAgeComparator();
+        demoGenderComparator();
     }
 
     private void queueOfStringsPriorityDemo() {
-        PriorityQueue<String> queue = new PriorityQueue<>();
+        PriorityQueue<String> priorityQueue= new PriorityQueue<>();
 
-        queue.add("Edward");
-        queue.add("Alan");
-        queue.add("Vera");
-        queue.add("Ben");
-        queue.add("Alan");
+        priorityQueue.add("Edward");
+        priorityQueue.add("Alan");
+        priorityQueue.add("Vera");
+        priorityQueue.add("Ben");
+        priorityQueue.add("Alan");
 
-        // values in a priority queue structure are organized in a manner such that
+        // values in a priority priorityQueuestructure are organized in a manner such that
         // they can be retrieved - using remove() - based on a specified ordering.
         //
         // For Strings, the natural ordering is alphabetical, and is determined
         // by the compareTo() method defined in the String class.
 
-        System.out.println("Using queue.remove() will retrieve the values in Priority Order");
-        while (!queue.isEmpty())
-            System.out.println(queue.remove());
+        System.out.println("Using priorityQueue.remove() will retrieve the values in Priority Order");
+        while (!priorityQueue.isEmpty())
+            System.out.println(priorityQueue.remove());
 
-        if (queue.isEmpty())
-            System.out.println("The queue is now empty.");
+        if (priorityQueue.isEmpty())
+            System.out.println("The priorityQueueis now empty.");
 
-        // queue has been emptied - so refill it
+        // priorityQueuehas been emptied - so refill it
 
-        queue.add("Edward");
-        queue.add("Alan");
-        queue.add("Vera");
-        queue.add("Ben");
-        queue.add("Alan");
+        priorityQueue.add("Edward");
+        priorityQueue.add("Alan");
+        priorityQueue.add("Vera");
+        priorityQueue.add("Ben");
+        priorityQueue.add("Alan");
 
-        System.out.println("Note that Iterating over a Priority Queue may NOT give the values in priority order!");
-        System.out.println("Therefore, you must always use the queue.remove() method for correct results.");
-        System.out.println("Dump of the queue values - note NOT in order!");
-        System.out.println(queue);    // print the whole queue
+        System.out.println("Note that Iterating over a Priority priorityQueuemay NOT give the values in priority order!");
+        System.out.println("Therefore, you must always use the priorityQueue.remove() method for correct results.");
+        System.out.println("Dump of the priorityQueuevalues - note NOT in order!");
+        System.out.println(priorityQueue);    // print the whole queue
 
         // for-each iteration over the queue
-        System.out.println("for-each iteration of the queue values - NOT guaranteed to be in order! Be CAREFUL!");
-        for (String name : queue) {
+        System.out.println("for-each iteration of the priorityQueuevalues - NOT guaranteed to be in order! Be CAREFUL!");
+        for (String name : priorityQueue) {
             System.out.print(name + ", ");
         }
         System.out.println();
@@ -74,19 +74,19 @@ public class MainApp {
         // For your own classes, you need to write a compareTo() method or
         // write a Comparator and pass it into the PriorityQueue constructor.
 
-        PriorityQueue<User> queue = new PriorityQueue<>();
+        PriorityQueue<User> priorityQueue= new PriorityQueue<>();
 
-        queue.add(new User("john", "brown", (short) 23, 'M'));
-        queue.add(new User("maeve", "green", (short) 19, 'F'));
-        queue.add(new User("bea", "scarlet", (short) 28, 'F'));
+        priorityQueue.add(new User("john", "brown", (short) 23, 'M'));
+        priorityQueue.add(new User("maeve", "green", (short) 19, 'F'));
+        priorityQueue.add(new User("bea", "scarlet", (short) 28, 'F'));
 
-        queue.add(new User("maeve", "green", (short) 36, 'F'));
-        queue.add(new User("alan", "brown", (short) 50, 'M'));
+        priorityQueue.add(new User("maeve", "green", (short) 36, 'F'));
+        priorityQueue.add(new User("alan", "brown", (short) 50, 'M'));
 
         System.out.println("Users in priority order dictated by compareTo() method in User class");
 
-        while ( !queue.isEmpty() ) {
-            System.out.println(queue.remove());
+        while ( !priorityQueue.isEmpty() ) {
+            System.out.println(priorityQueue.remove());
         }
     }
 
@@ -95,58 +95,49 @@ public class MainApp {
         // write a Comparator and pass it into the PriorityQueue constructor.
         // Here we write a FirstName comparator
 
-        PriorityQueue<User> queue = new PriorityQueue<>(new UserFirstNameComparator());
+        PriorityQueue<User> priorityQueue= new PriorityQueue<>(new UserFirstNameComparator());
 
-        queue.add(new User("john", "brown", (short) 23, 'M'));
-        queue.add(new User("maeve", "green", (short) 19, 'F'));
-        queue.add(new User("bea", "scarlet", (short) 28, 'F'));
+        priorityQueue.add(new User("john", "brown", (short) 23, 'M'));
+        priorityQueue.add(new User("maeve", "green", (short) 19, 'F'));
+        priorityQueue.add(new User("bea", "scarlet", (short) 28, 'F'));
 
-        queue.add(new User("maeve", "green", (short) 36, 'F'));
-        queue.add(new User("alan", "brown", (short) 50, 'M'));
+        priorityQueue.add(new User("maeve", "green", (short) 36, 'F'));
+        priorityQueue.add(new User("alan", "brown", (short) 50, 'M'));
 
-        while ( !queue.isEmpty() ) {
-            System.out.println(queue.remove());
+        while ( !priorityQueue.isEmpty() ) {
+            System.out.println(priorityQueue.remove());
         }
     }
 
 
     private void demoGenderComparator() {
-        PriorityQueue<User> queue = new PriorityQueue<User>(
+        PriorityQueue<User> priorityQueue= new PriorityQueue<User>(
                 new UserGenderComparator(SortType.Ascending));
 
-        queue.add(new User("john", "brown", (short) 23, 'M'));
-        queue.add(new User("maeve", "green", (short) 19, 'F'));
-        queue.add(new User("bea", "scarlet", (short) 28, 'F'));
+        priorityQueue.add(new User("john", "brown", (short) 23, 'M'));
+        priorityQueue.add(new User("maeve", "green", (short) 19, 'F'));
+        priorityQueue.add(new User("bea", "scarlet", (short) 28, 'F'));
 
         System.out.println("Values in order of Gender Priority:");
-        //iterator & remove
-        Iterator<User> iterator = queue.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(queue.remove());
+        while ( !priorityQueue.isEmpty() ) {
+            System.out.println(priorityQueue.remove());
         }
     }
 
     private void demoUserAgeComparator() {
-        PriorityQueue<User> queue
-				= new PriorityQueue<User>(new UserAgeComparator(SortType.Ascending));
+        PriorityQueue<User> priorityQueue
+                = new PriorityQueue<>(new UserAgeComparator(SortType.Ascending));
 
-        queue.add(new User("john", "brown", (short) 23, 'M'));
-        queue.add(new User("maeve", "green", (short) 19, 'F'));
-        queue.add(new User("bea", "scarlet", (short) 28, 'F'));
+        priorityQueue.add(new User("john", "brown", (short) 23, 'M'));
+        priorityQueue.add(new User("maeve", "green", (short) 19, 'F'));
+        priorityQueue.add(new User("bea", "scarlet", (short) 28, 'F'));
 
         System.out.println("Values in order of Age Priority:");
-        //iterator & remove
-        Iterator<User> iterator = queue.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(queue.remove());
+        while ( !priorityQueue.isEmpty() ) {
+            System.out.println(priorityQueue.remove());
         }
     }
 
-
-//    public void addToQueue(PriorityQueue<User> queue, User u) {
-//        if (!queue.contains(u)) // prevent duplicates (which would otherwise be permitted)
-//            queue.add(u);
-//    }
 
 }
 
