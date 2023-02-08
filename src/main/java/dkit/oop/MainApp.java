@@ -1,11 +1,19 @@
 package dkit.oop;
 
-// Priority priorityQueueDemo			Feb 2022
+// Priority Queue 			Feb 2023
+// A Priority Ques is a structure that organises elements in the collection so that
+// when we request to remove() an element from the queue, then that element will be
+// the element with the TOP priority.  The highest priority element will always 'come to the top' and
+// will be the one available next when a remove() is attempted.
+//
+// We can determine what "TOP Priority" means, by providing appropriate
+// compare functions (e.e. Comparator)
+
 
 // Demonstrates
-// - PriorityQueue for priorityQueueof Strings ( uses compareTo() as defined in String class)
-// - PriorityQueue for priorityQueueof User objects (employing the compareTo() method defined in User)
-// - PriorityQueue for priorityQueueof User Objects using various Comparators that are passed into
+// - PriorityQueue for priorityQueue of Strings ( uses compareTo() as defined in String class)
+// - PriorityQueue for priorityQueue of User objects (employing the compareTo() method defined in User)
+// - PriorityQueue for priorityQueue of User Objects using various Comparators that are passed into
 //   the PriorityQueue's constructor.
 
 import java.util.Comparator;
@@ -35,8 +43,8 @@ public class MainApp {
         priorityQueue.add("Ben");
         priorityQueue.add("Alan");
 
-        // values in a priority priorityQueuestructure are organized in a manner such that
-        // they can be retrieved - using remove() - based on a specified ordering.
+        // values in a priority priorityQueue structure are organized in a manner such that
+        // they can be retrieved - using remove() - based on priority.
         //
         // For Strings, the natural ordering is alphabetical, and is determined
         // by the compareTo() method defined in the String class.
@@ -46,7 +54,7 @@ public class MainApp {
             System.out.println(priorityQueue.remove());
 
         if (priorityQueue.isEmpty())
-            System.out.println("The priorityQueueis now empty.");
+            System.out.println("The priorityQueue is now empty.");
 
         // priorityQueuehas been emptied - so refill it
 
@@ -56,13 +64,13 @@ public class MainApp {
         priorityQueue.add("Ben");
         priorityQueue.add("Alan");
 
-        System.out.println("Note that Iterating over a Priority priorityQueuemay NOT give the values in priority order!");
+        System.out.println("Note that Iterating over a Priority priorityQueue may NOT give the values in priority order!");
         System.out.println("Therefore, you must always use the priorityQueue.remove() method for correct results.");
-        System.out.println("Dump of the priorityQueuevalues - note NOT in order!");
+        System.out.println("Dump of the priorityQueue values - note NOT in order!");
         System.out.println(priorityQueue);    // print the whole queue
 
         // for-each iteration over the queue
-        System.out.println("for-each iteration of the priorityQueuevalues - NOT guaranteed to be in order! Be CAREFUL!");
+        System.out.println("for-each iteration of the priorityQueue values - NOT guaranteed to be in order! Be CAREFUL!");
         for (String name : priorityQueue) {
             System.out.print(name + ", ");
         }
