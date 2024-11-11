@@ -1,17 +1,18 @@
 package dkit.oop;
 
-// Priority Queue 			Feb 2023
+// Priority Queue 			Nov 2024
 // A Priority Ques is a structure that organises elements in a collection so that
-// when we request to remove() an element from the queue, the element removed will be
+// when we remove() an element from the queue, the element removed will be
 // the element with the highest priority.  The highest priority element will always
 // 'come to the top' and will be the one available next when a remove() is attempted.
-// (The queue is not necessarily sorted, but is organised internally to give us the
-//  highest priority element when remove() is called.)
-// We can set what "Highest Priority" means, by providing appropriate
+// (The elements in the queue are NOT necessarily sorted, but is organised internally
+// so that the highest priority element is always the next one for removal.
+// We can set the Priority of elements, by providing appropriate
 // compare functions.
-// 1. By coding the Element class to implement Comparable (and writing compareTo() method), and/or
+// 1. By implementing the Comparable interface (and writing compareTo() method) in the
+//    class defining the objects used in the queue
 // 2. By coding a Comparator (and writing its compare(obj1, obj2) method).
-// A Comparator will take precedence over Comparable if both are implemented.
+// A Comparator will take precedence over Comparable if both are provided.
 
 
 // Demonstrates
@@ -70,7 +71,7 @@ public class MainApp {
 
         System.out.println("Note that Iterating over a Priority priorityQueue may NOT give the values in priority order!");
         System.out.println("Therefore, you must always use the remove() method for correct results.");
-        System.out.println("Simple printing of the priorityQueue object - note NOT in priority order!");
+        System.out.println("Simple print of the priorityQueue object - note elements are NOT in priority order!");
         System.out.println(priorityQueue);
 
         // for-each iteration over the queue elements
@@ -112,6 +113,8 @@ public class MainApp {
         // Here we write a FirstName comparator. All other fields are ignored.
 
         PriorityQueue<User> priorityQueue= new PriorityQueue<>(new UserFirstNameComparator());
+        // or
+        // PriorityQueue<User> priorityQueue= new PriorityQueue<>(Comparator.comparing(User::getFirstName));
 
         priorityQueue.add(new User("John", "Brown",  (short) 23 )); // cast to short integer
         priorityQueue.add(new User("Maeve", "Green", (short) 19 ));
@@ -144,11 +147,11 @@ public class MainApp {
     }
 
     // Instead of writing loop each time to output the elements from the queue,
-    // here we write a function that will remove All queue elements and print
+    // here we write a method that will remove All queue elements and print
     // them as it removes them.
     // Note that we can use a parameter that is of Interface Type Queue here.
-    // The underlying concrete queue type (PriorityQueue) will determine
-    // the order of elements as we remove them.
+    // The underlying concrete queue type (PriorityQueue) will ensure that elements
+    // are returned in priority order.
     //
     void displayAllInPriorityOrder ( Queue<User> queue) {
         while ( !queue.isEmpty() ) {
