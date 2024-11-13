@@ -7,9 +7,8 @@ public class User implements Comparable<User>
 
 	private String firstName;
 	private String lastName;
-	private short age;	// short integer (to save some space, as age will be in range 0-120
-
-	public User(String firstName, String lastName, short age) {
+	private int age;
+	public User(String firstName, String lastName, int age) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -78,7 +77,7 @@ public class User implements Comparable<User>
 		this.lastName = lastName;
 	}
 
-	public short getAge() {
+	public int getAge() {
 		return age;
 	}
 
